@@ -1,0 +1,18 @@
+{
+  "forms": [
+    {
+      "projectId": 1,
+      "xmlFormId": "example_household_sms",
+      "version": "2026110901",
+      "smsFields": ["district", "village", "head_name", "members", "urgent_need", "gps"]
+    }
+  ],
+  "keys": [
+    {
+      "keyId": 1,
+      "appUser": "enumerator-01",
+      "keyBase64": "REPLACE_WITH_32_RANDOM_BYTES_BASE64 (openssl rand -base64 32)",
+      "revoked": false
+    }
+  ]
+}

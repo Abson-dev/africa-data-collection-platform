@@ -1,0 +1,5 @@
+# Copy to staging.tfvars / prod.tfvars (not committed) and adjust.
+environment    = "staging"
+central_domain = "central-staging.example.org"
+bridge_domain  = "bridge-staging.example.org"
+enable_https   = false # set to true after the certificate is validated

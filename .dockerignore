@@ -1,0 +1,8 @@
+.git
+.gradle
+**/build
+.kotlin
+docs
+infra
+forms
+*.md

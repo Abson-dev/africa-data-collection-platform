@@ -106,6 +106,8 @@ Bridge tables:
 - **Play Store build:** opens the phone's SMS app with the message pre-filled (`ACTION_SENDTO`); the enumerator taps Send.
 - **Managed build** (sideloaded or MDM, for partners that manage their own devices): sends automatically.
 
+**Framing:** the exact text format (frame headers, two sending modes, limits) is specified and implemented in [`libs/sms-codec`](../../libs/sms-codec/README.md).
+
 **Merge:** the full record keeps the same `instanceID`. When it arrives in Central over the internet, Bridge marks the partial `merged`. Analysts use the full record; the partial remains for the audit trail.
 
 ## 5. Sync behaviour
