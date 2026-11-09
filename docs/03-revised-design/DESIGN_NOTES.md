@@ -63,6 +63,10 @@ Paid plans and **mobile money billing** moved from Phase 4 to Phase 2, so the pl
 - what3words is paired with free plus codes.
 
 ## Open decisions (need your input)
+
+> **Decided on 9 November 2026:** NGOs, researchers and ministries · 2 developers · Kotlin · AWS · extend ODK.
+> See [step 4: Phase 1 spec](../04-phase1-spec/PHASE1_SPEC.md) for the consequences.
+
 1. **First users:** NGOs, a ministry, or researchers? This sets which Phase 2/3 features come first.
 2. **Team size and budget:** this decides whether a 6-month Phase 1 is realistic.
 3. **Mobile stack:** Kotlin (native Android, best on low-end phones) or Flutter/React Native (easier iOS later).
