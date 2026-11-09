@@ -1,0 +1,112 @@
+<svg width="100%" viewBox="0 0 760 780" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Offline sync flow v2</title>
+  <desc>Submissions are saved to an encrypted outbox, uploaded idempotently by UUID when a usable connection exists, with media uploaded separately and resumably. Without connection the record waits; optionally key text fields go by SMS as a partial record that the server merges by UUID.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+    .title { font-size: 18px; font-weight: 600; fill: #2C2C2A; }
+    .bt  { font-size: 13px; font-weight: 600; text-anchor: middle; }
+    .bl  { font-size: 12px; text-anchor: middle; }
+    .lbl { font-size: 12px; fill: #3D3D3A; }
+    .g   { fill: #E1F5EE; stroke: #0F6E56; stroke-width: 0.75; } .gt { fill: #085041; } .gs { fill: #0F6E56; }
+    .n   { fill: #F1EFE8; stroke: #5F5E5A; stroke-width: 0.75; } .nt { fill: #444441; } .ns { fill: #5F5E5A; }
+    .o   { fill: #FAECE7; stroke: #993C1D; stroke-width: 0.75; } .ot { fill: #712B13; } .os { fill: #993C1D; }
+    .a   { fill: #FAEEDA; stroke: #BA7517; stroke-width: 0.75; } .at { fill: #633806; } .as { fill: #854F0B; }
+    .w   { fill: none; stroke: #73726C; stroke-width: 1.5; }
+    .wo  { fill: none; stroke: #D85A30; stroke-width: 1.5; }
+    .wd  { fill: none; stroke: #888780; stroke-width: 1.2; stroke-dasharray: 4 3; }
+    .wa  { fill: none; stroke: #BA7517; stroke-width: 1.5; stroke-dasharray: 5 3; }
+    .note { font-size: 12px; fill: #5F5E5A; }
+    .noteh { font-size: 13px; font-weight: 600; fill: #444441; }
+  </style>
+  <rect width="760" height="780" fill="#FFFFFF"/>
+
+  <text x="20" y="30" class="title">Offline-first sync flow (v2)</text>
+
+  <!-- A: start -->
+  <rect x="130" y="48" width="260" height="40" rx="20" class="n"/>
+  <text x="260" y="73" class="bt nt">Enumerator submits form</text>
+  <line x1="260" y1="88" x2="260" y2="108" class="w" marker-end="url(#arrow)"/>
+
+  <!-- B: save -->
+  <rect x="130" y="110" width="260" height="52" rx="8" class="g"/>
+  <text x="260" y="131" class="bt gt">Validate + save on device</text>
+  <text x="260" y="149" class="bl gs">encrypted SQLite · UUID · form version</text>
+  <line x1="260" y1="162" x2="260" y2="180" class="w" marker-end="url(#arrow)"/>
+
+  <!-- C: outbox -->
+  <rect x="130" y="182" width="260" height="40" rx="8" class="g"/>
+  <text x="260" y="207" class="bt gt">Add to outbox (status: pending)</text>
+  <line x1="260" y1="222" x2="260" y2="240" class="w" marker-end="url(#arrow)"/>
+
+  <!-- D: decision -->
+  <rect x="130" y="242" width="260" height="44" rx="8" class="n"/>
+  <text x="260" y="261" class="bt nt">Usable connection?</text>
+  <text x="260" y="277" class="bl ns">server reachable, not just "signal bars"</text>
+
+  <!-- YES path -->
+  <line x1="260" y1="286" x2="260" y2="314" class="w" marker-end="url(#arrow)"/>
+  <text x="270" y="304" class="lbl">yes</text>
+
+  <rect x="130" y="316" width="260" height="52" rx="8" class="g"/>
+  <text x="260" y="337" class="bt gt">Upload record data (JSON)</text>
+  <text x="260" y="355" class="bl gs">idempotent POST · batched · backoff</text>
+  <line x1="260" y1="368" x2="260" y2="386" class="w" marker-end="url(#arrow)"/>
+
+  <rect x="130" y="388" width="260" height="52" rx="8" class="g"/>
+  <text x="260" y="409" class="bt gt">Server stores + acknowledges</text>
+  <text x="260" y="427" class="bl gs">same UUID again → same ack, no copy</text>
+  <line x1="260" y1="440" x2="260" y2="458" class="w" marker-end="url(#arrow)"/>
+
+  <rect x="130" y="460" width="260" height="40" rx="8" class="g"/>
+  <text x="260" y="485" class="bt gt">Mark record data synced</text>
+  <line x1="260" y1="500" x2="260" y2="518" class="w" marker-end="url(#arrow)"/>
+
+  <rect x="130" y="520" width="260" height="52" rx="8" class="g"/>
+  <text x="260" y="541" class="bt gt">Upload media files separately</text>
+  <text x="260" y="559" class="bl gs">chunked · resumable · Wi-Fi-only option</text>
+  <line x1="260" y1="572" x2="260" y2="590" class="w" marker-end="url(#arrow)"/>
+
+  <rect x="130" y="592" width="260" height="52" rx="26" class="g"/>
+  <text x="260" y="613" class="bt gt">Fully synced</text>
+  <text x="260" y="631" class="bl gs">local copy purged after retention period</text>
+
+  <!-- NO path -->
+  <path d="M390 264 L590 264 L590 314" class="wo" marker-end="url(#arrow)"/>
+  <text x="402" y="256" class="lbl">no</text>
+
+  <rect x="450" y="316" width="280" height="52" rx="8" class="o"/>
+  <text x="590" y="337" class="bt ot">Keep in outbox</text>
+  <text x="590" y="355" class="bl os">retry on network change + every 15 min</text>
+
+  <!-- retry loop back to outbox -->
+  <path d="M730 342 L746 342 L746 202 L392 202" class="wd" marker-end="url(#arrow)"/>
+  <text x="560" y="196" class="lbl">connection returns → retry</text>
+
+  <!-- optional SMS branch -->
+  <line x1="590" y1="368" x2="590" y2="408" class="wa" marker-end="url(#arrow)"/>
+  <text x="600" y="392" class="lbl" style="fill:#854F0B">optional: urgent + SMS on</text>
+
+  <rect x="450" y="410" width="280" height="52" rx="8" class="a"/>
+  <text x="590" y="431" class="bt at">Send key fields by SMS</text>
+  <text x="590" y="449" class="bl as">text only · compressed · signed · ≤ 3 SMS</text>
+  <line x1="590" y1="462" x2="590" y2="480" class="wa" marker-end="url(#arrow)"/>
+
+  <rect x="450" y="482" width="280" height="52" rx="8" class="a"/>
+  <text x="590" y="503" class="bt at">SMS gateway → server</text>
+  <text x="590" y="521" class="bl as">saved as partial record, keyed by UUID</text>
+
+  <text x="590" y="556" class="bl as">Full record + media stay in the outbox</text>
+  <text x="590" y="572" class="bl as">and upload later; the server merges by UUID.</text>
+
+  <!-- Notes -->
+  <line x1="20" y1="672" x2="740" y2="672" stroke="#D3D1C7" stroke-width="1"/>
+  <text x="20" y="696" class="noteh">Why sync conflicts are rare in this design</text>
+  <text x="20" y="716" class="note">1. Submissions are append-only and keyed by a UUID made on the phone, so two devices never write the same record.</text>
+  <text x="20" y="734" class="note">2. Each submission carries its form version; the server validates it against that version, not the latest one.</text>
+  <text x="20" y="752" class="note">3. After sync the device copy is read-only. Corrections happen on the server, by reviewers, and are audit-logged.</text>
+</svg>

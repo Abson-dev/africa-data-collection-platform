@@ -1,0 +1,161 @@
+<svg width="100%" viewBox="0 0 800 1010" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Africa data platform roadmap v2</title>
+  <desc>24-month roadmap in four phases, revised: Android-first MVP with ODK-compatible forms, compliance moved earlier, SMS fallback limited to text, mobile money and in-region hosting moved to Phase 2.</desc>
+  <style>
+    text { font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+    .title { font-size: 18px; font-weight: 600; fill: #2C2C2A; }
+    .sub   { font-size: 12px; fill: #5F5E5A; }
+    .ph    { font-size: 14px; font-weight: 600; }
+    .phs   { font-size: 12px; }
+    .ct    { font-size: 13px; font-weight: 600; fill: #444441; }
+    .li    { font-size: 12px; fill: #5F5E5A; }
+    .chg   { fill: #854F0B; font-weight: 600; }
+    .card  { fill: #FFFFFF; stroke: #B4B2A9; stroke-width: 0.5; }
+    .p1 { fill: #E1F5EE; stroke: #0F6E56; stroke-width: 0.75; }  .p1t { fill: #085041; }  .p1s { fill: #0F6E56; }
+    .p2 { fill: #EEEDFE; stroke: #534AB7; stroke-width: 0.75; }  .p2t { fill: #3C3489; }  .p2s { fill: #534AB7; }
+    .p3 { fill: #FAECE7; stroke: #993C1D; stroke-width: 0.75; }  .p3t { fill: #712B13; }  .p3s { fill: #993C1D; }
+    .p4 { fill: #E6F1FB; stroke: #185FA5; stroke-width: 0.75; }  .p4t { fill: #0C447C; }  .p4s { fill: #185FA5; }
+    .every { fill: #F1EFE8; stroke: #888780; stroke-width: 0.75; }
+  </style>
+  <rect width="800" height="1010" fill="#FFFFFF"/>
+
+  <text x="20" y="30" class="title">Africa data platform roadmap (v2)</text>
+  <text x="20" y="50" class="sub">24 months. Revised for low connectivity, data protection law and a smaller, shippable Phase 1.</text>
+
+  <!-- Cross-cutting -->
+  <rect x="20" y="66" width="760" height="54" rx="10" class="every"/>
+  <text x="36" y="88" class="ct">Every phase</text>
+  <text x="140" y="88" class="li">Languages: EN, FR, PT, AR (right-to-left), Swahili, Hausa, Amharic · Works on 2G/3G</text>
+  <text x="140" y="106" class="li">Data protection: POPIA, NDPA, Kenya DPA and similar laws · Each release piloted in the field</text>
+
+  <!-- ========== Phase 1 ========== -->
+  <rect x="20" y="136" width="760" height="208" rx="14" class="p1"/>
+  <text x="36" y="160" class="ph p1t">Phase 1 — MVP core (months 1–6)</text>
+  <text x="36" y="178" class="phs p1s">Android-first offline collection, ODK-compatible forms, safe sync</text>
+
+  <rect x="40" y="192" width="171" height="118" rx="8" class="card"/>
+  <text x="52" y="214" class="ct">Forms</text>
+  <text x="52" y="234" class="li">XLSForm / ODK import</text>
+  <text x="52" y="250" class="li chg">+ form versioning</text>
+  <text x="52" y="266" class="li">skip logic + rules</text>
+  <text x="52" y="282" class="li">multi-language labels</text>
+  <text x="52" y="298" class="li chg">+ drag-drop builder m5–6</text>
+
+  <rect x="223" y="192" width="171" height="118" rx="8" class="card"/>
+  <text x="235" y="214" class="ct">Mobile data entry</text>
+  <text x="235" y="234" class="li chg">+ Android first</text>
+  <text x="235" y="250" class="li">full offline support</text>
+  <text x="235" y="266" class="li chg">→ GPS point capture</text>
+  <text x="235" y="282" class="li">photo, audio, barcode</text>
+  <text x="235" y="298" class="li chg">+ low-end phones</text>
+
+  <rect x="406" y="192" width="171" height="118" rx="8" class="card"/>
+  <text x="418" y="214" class="ct">Sync + storage</text>
+  <text x="418" y="234" class="li chg">+ idempotent uploads</text>
+  <text x="418" y="250" class="li chg">+ resumable media</text>
+  <text x="418" y="266" class="li">low-bandwidth sync</text>
+  <text x="418" y="282" class="li chg">+ SMS: key fields only</text>
+  <text x="418" y="298" class="li">local encryption</text>
+
+  <rect x="589" y="192" width="171" height="118" rx="8" class="card"/>
+  <text x="601" y="214" class="ct chg">+ Trust + compliance</text>
+  <text x="601" y="234" class="li chg">+ consent capture</text>
+  <text x="601" y="250" class="li chg">→ audit trail</text>
+  <text x="601" y="266" class="li chg">+ remote device wipe</text>
+  <text x="601" y="282" class="li chg">+ roles per project</text>
+
+  <text x="40" y="332" class="li p1t">Month 6 milestone: pilot with 1–2 partner organisations. Build iOS only if a pilot partner needs it.</text>
+
+  <!-- ========== Phase 2 ========== -->
+  <rect x="20" y="360" width="760" height="190" rx="14" class="p2"/>
+  <text x="36" y="384" class="ph p2t">Phase 2 — Field intelligence (months 7–12)</text>
+  <text x="36" y="402" class="phs p2s">GPS/GIS tools, team management, live monitoring, and first revenue</text>
+
+  <rect x="40" y="416" width="171" height="118" rx="8" class="card"/>
+  <text x="52" y="438" class="ct">GPS / mapping</text>
+  <text x="52" y="458" class="li">geo-fencing</text>
+  <text x="52" y="474" class="li">polygon capture</text>
+  <text x="52" y="490" class="li">offline map tiles</text>
+  <text x="52" y="506" class="li chg">+ what3words / plus codes</text>
+
+  <rect x="223" y="416" width="171" height="118" rx="8" class="card"/>
+  <text x="235" y="438" class="ct">Team management</text>
+  <text x="235" y="458" class="li">enumerator accounts</text>
+  <text x="235" y="474" class="li">supervisor dashboards</text>
+  <text x="235" y="490" class="li">quota tracking</text>
+  <text x="235" y="506" class="li">assignment routing</text>
+  <text x="235" y="522" class="li chg">→ iOS app</text>
+
+  <rect x="406" y="416" width="171" height="118" rx="8" class="card"/>
+  <text x="418" y="438" class="ct">Live monitoring</text>
+  <text x="418" y="458" class="li">submission heatmap</text>
+  <text x="418" y="474" class="li">outlier alerts</text>
+  <text x="418" y="490" class="li">interview duration</text>
+  <text x="418" y="506" class="li">data quality flags</text>
+  <text x="418" y="522" class="li chg">+ audio audits</text>
+
+  <rect x="589" y="416" width="171" height="118" rx="8" class="card"/>
+  <text x="601" y="438" class="ct chg">+ Revenue + hosting</text>
+  <text x="601" y="458" class="li chg">+ paid plans</text>
+  <text x="601" y="474" class="li chg">→ mobile money billing</text>
+  <text x="601" y="490" class="li chg">→ in-region hosting</text>
+  <text x="601" y="506" class="li chg">+ SMS cost controls</text>
+
+  <!-- ========== Phase 3 ========== -->
+  <rect x="20" y="566" width="760" height="190" rx="14" class="p3"/>
+  <text x="36" y="590" class="ph p3t">Phase 3 — Sector depth (months 13–18)</text>
+  <text x="36" y="608" class="phs p3s">Health, agriculture and analytics specialisation</text>
+
+  <rect x="40" y="622" width="232" height="118" rx="8" class="card"/>
+  <text x="52" y="644" class="ct">Health module</text>
+  <text x="52" y="664" class="li">DHIS2 integration</text>
+  <text x="52" y="680" class="li">patient ID support</text>
+  <text x="52" y="696" class="li chg">+ consent-gated biometrics</text>
+  <text x="52" y="712" class="li">WHO form templates</text>
+  <text x="52" y="728" class="li chg">+ opt-in end-to-end encryption</text>
+
+  <rect x="284" y="622" width="232" height="118" rx="8" class="card"/>
+  <text x="296" y="644" class="ct">Agriculture module</text>
+  <text x="296" y="664" class="li">parcel / plot mapping</text>
+  <text x="296" y="680" class="li">crop calendar logic</text>
+  <text x="296" y="696" class="li">market price lookup</text>
+  <text x="296" y="712" class="li">soil sample tracking</text>
+
+  <rect x="528" y="622" width="232" height="118" rx="8" class="card"/>
+  <text x="540" y="644" class="ct">Analytics + export</text>
+  <text x="540" y="664" class="li">built-in dashboards</text>
+  <text x="540" y="680" class="li chg">+ SPSS, Stata, R, CSV</text>
+  <text x="540" y="696" class="li">Power BI connector</text>
+  <text x="540" y="712" class="li">scheduled reports</text>
+
+  <!-- ========== Phase 4 ========== -->
+  <rect x="20" y="772" width="760" height="190" rx="14" class="p4"/>
+  <text x="36" y="796" class="ph p4t">Phase 4 — Platform + scale (months 19–24)</text>
+  <text x="36" y="814" class="phs p4s">API ecosystem, government-grade deployment, pan-African infrastructure</text>
+
+  <rect x="40" y="828" width="232" height="118" rx="8" class="card"/>
+  <text x="52" y="850" class="ct">Open API + SDK</text>
+  <text x="52" y="870" class="li">public REST + webhooks</text>
+  <text x="52" y="886" class="li chg">+ ODK Central API compatibility</text>
+  <text x="52" y="902" class="li">3rd-party app store</text>
+  <text x="52" y="918" class="li">developer portal</text>
+
+  <rect x="284" y="828" width="232" height="118" rx="8" class="card"/>
+  <text x="296" y="850" class="ct">Gov + NGO tools</text>
+  <text x="296" y="870" class="li">SLA + support tiers</text>
+  <text x="296" y="886" class="li">white-label option</text>
+  <text x="296" y="902" class="li">on-premise deploy</text>
+  <text x="296" y="918" class="li chg">+ ISO 27001 certification</text>
+
+  <rect x="528" y="828" width="232" height="118" rx="8" class="card"/>
+  <text x="540" y="850" class="ct">Africa infrastructure</text>
+  <text x="540" y="870" class="li">more local cloud regions</text>
+  <text x="540" y="886" class="li chg">+ USSD channel (own engine)</text>
+  <text x="540" y="902" class="li">feature-phone support</text>
+  <text x="540" y="918" class="li">partner network</text>
+
+  <!-- Legend -->
+  <text x="20" y="990" class="li"><tspan class="chg">+</tspan> new or reworded in v2</text>
+  <text x="190" y="990" class="li"><tspan class="chg">→</tspan> moved into this phase</text>
+  <text x="360" y="990" class="li">Rationale for each change: DESIGN_NOTES.md</text>
+</svg>
